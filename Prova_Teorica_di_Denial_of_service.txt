@@ -1,36 +1,73 @@
-Il seguente codice rappresenta un esempio puramente didattico di configurazione per l'analisi del traffico di rete, utilizzabile esclusivamente in ambienti controllati e isolati (come macchine virtuali o laboratori autorizzati):
+#############################################################################
+#                                                                           #
+#               PROGETTO TEORICO DI SICUREZZA IN RETI LOCALI                #
+#                  (Capolavoro scolastico - Anno 2024/2025)                 #
+#                                                                           #
+#                   *** SIMULAZIONE CONTROLLATA DI DOS ***                  #
+#                                                                           #
+#############################################################################
 
+=== DESCRIZIONE GENERALE ===
+Questo frammento di codice rappresenta un'esercitazione teorica per lo studio:
+- Dei meccanismi di filtraggio del traffico di rete
+- Degli attacchi di tipo Denial of Service (DoS)
+- Delle tecniche di mitigazione degli attacchi ARP
+
+Ambiente di test autorizzato:
+[✓] Rete virtuale isolata (VirtualBox Internal Network)
+[✓] Indirizzi IP generici e fasulli (192.168.X.X)
+[✓] Nessun dispositivo reale coinvolto
+
+=== AVVERTENZE LEGALI ===
+L'uso non autorizzato costituisce reato:
+- Art. 615-quinquies CP (Dan. sistemi informatici)
+- Direttiva UE NIS2 (Cyber Resilience Act)
+- Computer Misuse Act 1990 (UK)
+
+Strumenti utilizzati:
+- Ettercap 0.8.3 (solo versione da laboratorio)
+- Filtri compilati con checksum di verifica
+- ISO Debian modificata senza servizi di rete
+
+=== INIZIO CODICE ===
+
+# Filtro teorico per l'analisi del traffico
 if(ip.src == '192.168.X.X' || ip.dst == '192.168.X.X') {
-   drop();
-   kill();
+   drop();  # Simula blocco pacchetti
+   kill();  # Termina connessione
 }
 
-Descrizione tecnica:
+# Processo di compilazione (ambiente controllato)
+etterfilter block_router.ef -o block_router.efo --strict
 
-Il codice mostra una regola teorica per il filtraggio di pacchetti, che interrompe il traffico da/a un indirizzo IP generico di rete locale (192.168.X.X).
+# Applicazione in laboratorio (richiede root)
+sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
 
-Le funzioni drop() e kill() simulano l'interruzione delle comunicazioni a scopo dimostrativo.
+=== FINE CODICE ===
 
-Strumenti utilizzati (solo per scopi formativi):
+=== DOCUMENTAZIONE TECNICA ===
 
-etterfilter block_router.ef -o block_router.efo  # Compilazione del filtro
+*Parametri chiave:*
+- `drop()`: Simula l'eliminazione dei pacchetti
+- `kill()`: Termina le connessioni attive
+- `arp:remote`: Modalità laboratorio (non reale)
 
-sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//  # Applicazione in ambiente controllato 
+*Configurazione ambiente:*
+- Rete virtuale: 192.168.100.0/24
+- Durata test: max 5 minuti
+- Monitoraggio con Wireshark e Snort
 
-Contesto legittimo di utilizzo:
-Laboratori di cybersecurity con autorizzazione esplicita
-Macchine virtuali isolate, senza connessione a reti reali
-Corsi accademici sotto supervisione docente
+=== CONTESTI AMMISSIBILI ===
+1. Laboratorio universitario (es. corso Ethical Hacking)
+2. CTF autorizzati (Capture The Flag)
+3. Simulazioni per certificazioni:
+   - CEH (Certified Ethical Hacker)
+   - Cisco CyberOps
 
-Avvertenze importanti:
-Questo materiale è esclusivamente per studio e formazione
-L'uso di tali tecniche al di fuori di ambienti controllati è vietato per legge
-Gli indirizzi IP sono volutamente generici (192.168.X.X)
+=== FINALITÀ DIDATTICHE ===
+1. Analisi del protocollo ARP
+2. Potenziare le mie capacità digitali al fine etico e legale e soprattutto per imparare
 
-Finalità didattica:
-Comprendere il funzionamento dei filtri di rete
-Studiare tecniche di difesa (es. rilevamento ARP spoofing)
-Apprendere migliori pratiche per la sicurezza delle reti
-
-Nota conclusiva:
-L'analisi di questi concetti è fondamentale nella formazione in cybersecurity, purché condotta in modo etico e responsabile, sempre nel rispetto delle normative vigenti, come rispettato da me in ogni progetto.
+=== CHIUSURA ===
+Ogni riproduzione esterna al contesto
+didattico è espressamente vietata.
