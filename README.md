@@ -34,4 +34,7 @@ L'AI è stata utilizzata come strumento per:
 ---
 
 🔍 **Per qualsiasi dubbio sull'utilizzo del materiale, consultare un docente o un esperto di cybersecurity.**  
- ⚠️ Questo progetto è stato creato per fini educativi, sotto supervisione scolastica. Tutti i test sono stati svolti in ambienti isolati. Ogni uso improprio è vietato e non è responsabilità dell'autore.
+
+
+
+ ⚠️ Questo progetto è stato creato per fini educativi. Tutti i test sono stati svolti in ambienti isolati. Ogni uso improprio è vietato e non è responsabilità dell'autore.
