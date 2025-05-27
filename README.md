@@ -1,2 +1,2 @@
 # Cybersecurity-Project
-# In questo repository saranno presenti tutti i progetti realizzati quest'anno 
+# In questo repository saranno presenti tutti i progetti realizzati quest'anno, non tutti sono completi.
