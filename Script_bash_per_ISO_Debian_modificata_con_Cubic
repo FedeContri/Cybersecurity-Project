@@ -1,0 +1,154 @@
+#############################################################################
+#                                                                           #
+#                 PROGETTO TEORICO DI SICUREZZA INFORMATICA                 #
+#                  (Capolavoro scolastico - Anno 2024/2025)                 #
+#                                                                           #
+#                   *** USO ESCLUSIVAMENTE DIDATTICO ***                    #
+#                                                                           #
+#############################################################################
+
+=== DESCRIZIONE GENERALE ===
+Questo script Bash è stato creato come esercitazione teorica per lo studio:
+- Del funzionamento dei filesystem NTFS
+- Delle tecniche di recupero password in ambienti Windows
+- Dei meccanismi di sicurezza dei sistemi operativi
+
+Tutte le operazioni vanno eseguite SOLO su:
+[✓] Macchine virtuali di proprietà (VirtualBox/VMware)
+[✓] Hardware fisico autorizzato per scritto
+[✓] Sistemi senza dati personali reali
+
+=== AVVERTENZE LEGALI ===
+L'uso non autorizzato di questo strumento costituisce reato:
+- Art. 615-ter CP (Accesso abusivo a sistema informatico)
+- Art. 635-bis CP (Danneggiamento informatico)
+- Violazione GDPR per trattamento dati illecito
+
+Il codice è stato sviluppato e realizzato grazie all'AI e testato su ISO Debian modificata
+in ambiente completamente isolato da reti esterne.
+
+=== INIZIO CODICE ===
+
+#!/bin/bash
+
+# ======================
+# CONFIGURAZIONE INIZIALE
+# ======================
+echo "[INFO] Ricerca partizioni NTFS in corso..."
+
+# Cerca la prima partizione NTFS disponibile
+PART=$(lsblk -o NAME,FSTYPE | grep ntfs | awk '{print $1}' | head -n1)
+
+# Verifica se esiste almeno una partizione NTFS
+if [ -z "$PART" ]; then
+  echo "[ERRORE] Nessuna partizione NTFS trovata. Uscita."
+  exit 1
+fi
+
+# =============
+# MONTAGGIO FS
+# =============
+DEV="/dev/$PART"
+MNT="/mnt/win" # Punto di mount temporaneo
+
+echo "[INFO] Tentativo di montaggio in scrittura di $DEV"
+mkdir -p $MNT
+
+# Prova prima il montaggio in scrittura
+mount -t ntfs-3g $DEV $MNT 2>/dev/null
+
+# Fallback al montaggio in sola lettura
+if [ $? -ne 0 ]; then
+  echo "[WARNING] Montaggio scrittura fallito. Provo in sola lettura..."
+  mount -o ro -t ntfs-3g $DEV $MNT || { 
+    echo "[ERRORE] Montaggio fallito. Uscita."
+    exit 1
+  }
+fi
+
+# =========================
+# ANALISI FILE DI SISTEMA
+# =========================
+CONFIG_PATH="$MNT/Windows/System32/config"
+if [ ! -d "$CONFIG_PATH" ]; then
+  echo "[ERRORE] Directory di configurazione non trovata"
+  umount $MNT
+  exit 1
+fi
+
+# Spostamento nella directory target
+cd $CONFIG_PATH
+
+# ======================
+# INTERFACCIA UTENTE
+# ======================
+echo "[INFO] Elenco utenti nel registro SAM:"
+chntpw -l SAM
+
+# Scelta azione da compiere
+read -p "Inserisci username da modificare: " USER
+if [ -z "$USER" ]; then
+  echo "[ERRORE] Nessun username inserito"
+  umount $MNT
+  exit 1
+fi
+
+# Menu opzioni
+echo "Seleziona operazione:"
+echo "1) Cancella password"
+echo "2) Rendi amministratore"
+echo "3) Sblocca utente"
+read -p "Scelta (1/2/3): " OP
+
+# Esecuzione operazione
+case $OP in
+  1)
+    echo "[AZIONE] Cancellazione password per $USER"
+    chntpw -u "$USER" SAM
+    ;;
+  2)
+    echo "[AZIONE] Promozione a admin per $USER"
+    chntpw -u "$USER" -i SAM <<< $'3\n544\nq\ny\n'
+    ;;
+  3)
+    echo "[AZIONE] Sblocco account $USER"
+    chntpw -u "$USER" -i SAM <<< $'2\nq\ny\n'
+    ;;
+  *)
+    echo "[ERRORE] Scelta non valida"
+    ;;
+esac
+
+# =============
+# PULIZIA FINALE
+# =============
+umount $MNT
+echo "[SUCCESSO] Operazioni completate"
+
+=== FINE CODICE ===
+
+=== DOCUMENTAZIONE AGGIUNTIVA ===
+
+*Ambiente di sviluppo:*
+- ISO Debian 11 personalizzata (kernel 5.10)
+- VirtualBox 6.1 con rete NAT interna
+- Nessuna connessione Internet attiva durante i test
+
+*Strumenti utilizzati:*
+- chntpw (v1.00)
+- ntfs-3g (v2021.8.22)
+- Bash 5.1
+
+*Finalità didattiche:*
+1. Studio della struttura del registro Windows
+2. Analisi dei meccanismi di autenticazione
+3. Tecniche di recupero dati forense
+
+=== CHIUSURA ===
+Questo materiale è parte integrante del progetto scolastico
+e non deve essere utilizzato al di fuori del contesto formativo.
+
+Data creazione: 27/05/2025
+Autore: [Federico Contrino]
+Classe: [4C INF]
+Istituto: [I.S.S Carlo e Nello Rosselli]
