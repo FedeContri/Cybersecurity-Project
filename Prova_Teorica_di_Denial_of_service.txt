@@ -52,11 +52,6 @@ sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
 - `kill()`: Termina le connessioni attive
 - `arp:remote`: Modalità laboratorio (non reale)
 
-*Configurazione ambiente:*
-- Rete virtuale: 192.168.100.0/24
-- Durata test: max 5 minuti
-- Monitoraggio con Wireshark e Snort
-
 === CONTESTI AMMISSIBILI ===
 1. Laboratorio universitario (es. corso Ethical Hacking)
 2. CTF autorizzati (Capture The Flag)
@@ -71,3 +66,8 @@ sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
 === CHIUSURA ===
 Ogni riproduzione esterna al contesto
 didattico è espressamente vietata.
+
+Data creazione: 2025
+Autore: [Federico Contrino]
+Classe: [4C INF]
+Istituto: [I.S.S Carlo e Nello Rosselli]
