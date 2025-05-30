@@ -1,40 +1,53 @@
-# Cybersecurity-Project
-# 📚 Repository di Studio sulla Cybersecurity  
+# 🔐 Cybersecurity-Project  
 
-**Tutti i progetti e gli esperimenti presenti in questo repository sono esclusivamente a SCOPO DIDATTICO e TEORICO.**  
+## 📚 Scopo del Progetto  
+Raccolta di **esperimenti e studi teorici** su:  
+- Tecniche di cybersecurity  
+- Analisi di vulnerabilità  
+- Ambienti protetti virtualizzati  
 
-## ⚠️ Avvertenze Importanti  
-- 🔒 **Ambienti protetti**: Tutti gli esperimenti sono stati condotti esclusivamente in:  
-  - **Macchine virtuali isolate** (VirtualBox/VMware)  
-  - **Reti di laboratorio dedicate**  
-  - **Sandbox senza accesso a Internet**  
-- 📜 **Contesto legale**: Il materiale è stato creato per:  
-  - Capolavoro scolastico 
-  - Ricerca sulla sicurezza informatica  
-  - Migliorare le mie competenze digitali e in ambito della cybersecurity eticamente e responsabilmente  
-- 🚫 **Utilizzo improprio**: La riproduzione non autorizzata su sistemi reali è:  
-  - **Illegale** (viola l'art. 615-quinquies CP e normative internazionali)  
-  - **Eticamente inaccettabile**  
-
-## 🎯 Obiettivi Didattici  
-- Comprendere le tecniche di attacco **per sviluppare difese migliori**  
-- Analizzare vulnerabilità in **ambienti controllati**  
-
-
-- ## 🤖 Uso di Intelligenza Artificiale  
-L'AI è stata utilizzata come strumento per:  
-- Ottimizzare codice esistente/ creare codice
-- Generare spiegazioni tecniche  
-- Creare ambienti virtuali complessi
-- Aiutarmi a capire il funzionamento di molti progetti e la loro eticità
-- Realizzare alcuni progetti
-
-*"La conoscenza delle tecniche offensive è essenziale per costruire difese efficaci, ma deve sempre essere applicata con responsabilità."*  
+*Tutto il materiale è sviluppato esclusivamente per:*  
+✅ Sviluppo competenze digitali  
+✅ Ricerca etica in ambienti controllati  
+✅ Sviluppo di competenze legali nella sicurezza informatica  
 
 ---
 
-🔍 **Per qualsiasi dubbio sull'utilizzo del materiale, consultare un docente o un esperto di cybersecurity.**  
+## ⚠️ Condizioni d'Uso  
+### 🔒 Ambienti di Test  
+Tutti gli esperimenti sono condotti in:  
+- Macchine virtuali isolate (VirtualBox/VMware)  
+- Reti di laboratorio dedicate  
+- Sandbox senza connessione Internet  
 
+### 📜 Aspetti Legali  
+- Materiale creato per il **mio percorso scolastico**  
+- **Nessun test su sistemi reali** (art. 615-quinquies CP)  
+- Violazioni etiche/legali sono **esplicitamente vietate**  
 
+---
 
- ⚠️ Questo progetto è stato creato per fini educativi. Tutti i test sono stati svolti in ambienti isolati. Ogni uso improprio è vietato e non è responsabilità dell'autore.
+## 🎯 Obiettivi Didattici  
+1. Comprendere le tecniche offensive per costruire difese migliori  
+2. Analizzare vulnerabilità in contesti controllati  
+3. Sviluppare competenze tecniche ed etiche  
+
+---
+
+## 🤖 Uso dell'Intelligenza Artificiale  
+L'AI è stata utilizzata per:  
+- Ottimizzare/commentare e creare codice esistente  
+- Generare spiegazioni tecniche complesse  
+- Simulare ambienti virtuali per testing  
+- Verificare l'eticità degli approcci  
+
+> *"Conoscere gli attacchi è essenziale per difendersi, ma va fatto responsabilmente"*  
+
+---
+
+## 📜 Licenza & Responsabilità  
+- **Licenza MIT** - [Vedi file](LICENSE)  
+- **Nessuna garanzia** di funzionamento  
+- **L'autore non è responsabile** per usi impropri  
+
+*Per dubbi consultare un docente/esperto di cybersecurity.*  
