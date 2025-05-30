@@ -47,7 +47,7 @@ L'AI è stata utilizzata per:
 ---
 
 ## 📜 Licenza & Responsabilità  
-- **Licenza MIT** - [Vedi file](LICENSE)  
+- **Licenza MIT** 
 - **Nessuna garanzia** di funzionamento  
 - **L'autore non è responsabile** per usi impropri  
 
