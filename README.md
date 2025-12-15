@@ -1,54 +1,54 @@
 # 🔐 Cybersecurity-Project  
-*Repository didattico di FedeContri*  
+*Educational repository by FedeContri*  
 
-## 📚 Scopo del Progetto  
-Raccolta di **esperimenti e studi teorici** su:  
-- Tecniche di cybersecurity  
-- Analisi di vulnerabilità  
-- Ambienti protetti virtualizzati  
+## 📚 Project Purpose  
+Collection of **experiments and theoretical studies** on:  
+- Cybersecurity techniques  
+- Vulnerability analysis  
+- Virtualized protected environments  
 
-*Tutto il materiale è sviluppato esclusivamente per:*  
-✅ Sperimentare e imparare nuove tecniche  
-✅ Ricerca etica in ambienti controllati  
-✅ Sviluppo di competenze legali nella sicurezza informatica  
-
----
-
-## ⚠️ Condizioni d'Uso  
-### 🔒 Ambienti di Test  
-Tutti gli esperimenti sono condotti in:  
-- Macchine virtuali isolate (VirtualBox/VMware)  
-- Reti di laboratorio dedicate  
-- Sandbox senza connessione Internet  
-
-### 📜 Aspetti Legali  
-- Materiale creato per il **mio percorso scolastico**  
-- **Nessun test su sistemi reali** (art. 615-quinquies CP)  
-- Violazioni etiche/legali sono **esplicitamente vietate**  
+*All material is developed exclusively to:*  
+✅ Experiment and learn new techniques  
+✅ Ethical research in controlled environments  
+✅ Development of legal skills in information security  
 
 ---
 
-## 🎯 Obiettivi Didattici  
-1. Comprendere le tecniche offensive per costruire difese migliori  
-2. Analizzare vulnerabilità in contesti controllati  
-3. Sviluppare competenze tecniche ed etiche  
+## ⚠️ Terms of Use  
+### 🔒 Testing Environments  
+All experiments are conducted in:  
+- Isolated virtual machines (VirtualBox/VMware)  
+- Dedicated lab networks  
+- Sandboxes with no Internet connection  
+
+### 📜 Legal Aspects  
+- Material created for **my educational path**  
+- **No testing on real systems** (art. 615-quinquies CP)  
+- Ethical and legal violations are **explicitly forbidden**  
 
 ---
 
-## 🤖 Uso dell'Intelligenza Artificiale  
-L'AI è stata utilizzata per:  
-- Ottimizzare/commentare e creare codice esistente  
-- Generare spiegazioni tecniche complesse  
-- Simulare ambienti virtuali per testing  
-- Verificare l'eticità degli approcci  
-
-> *"Conoscere gli attacchi è essenziale per difendersi, ma va fatto responsabilmente"*  
+## 🎯 Educational Objectives  
+1. Understand offensive techniques to build better defenses  
+2. Analyze vulnerabilities in controlled contexts  
+3. Develop technical and ethical skills  
 
 ---
 
-## 📜 Licenza & Responsabilità  
-- **Licenza MIT** 
-- **Nessuna garanzia** di funzionamento  
-- **L'autore non è responsabile** per usi impropri  
+## 🤖 Use of Artificial Intelligence  
+AI has been used to:  
+- Optimize, comment, and create existing code  
+- Generate complex technical explanations  
+- Simulate virtual environments for testing  
+- Verify the ethical nature of the approaches  
 
-*Per dubbi consultare un docente/esperto di cybersecurity.* 
+> *"Knowing attacks is essential to defend against them, but it must be done responsibly"*  
+
+---
+
+## 📜 License & Responsibility  
+- **MIT License**  
+- **No warranty** of functionality  
+- **The author is not responsible** for improper use  
+
+*For any doubts, consult a teacher or a cybersecurity expert.*  
