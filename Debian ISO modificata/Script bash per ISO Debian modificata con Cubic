@@ -1,152 +1,152 @@
 #############################################################################
 #                                                                           #
-#                 PROGETTO TEORICO DI SICUREZZA INFORMATICA                 #
-#                  (Capolavoro scolastico - Anno 2024/2025)                 #
+#             THEORETICAL INFORMATION SECURITY PROJECT                       #
+#              (School Capstone Project – Year 2024/2025)                   #
 #                                                                           #
-#                   *** USO ESCLUSIVAMENTE DIDATTICO ***                    #
+#                *** EDUCATIONAL USE ONLY ***                                #
 #                                                                           #
 #############################################################################
 
-=== DESCRIZIONE GENERALE ===
-Questo script Bash è stato creato con l'aiuto dell'intelligenza artificiale come esercitazione teorica per lo studio:
-- Del funzionamento dei filesystem NTFS
-- Delle tecniche di recupero password in ambienti Windows
-- Dei meccanismi di sicurezza dei sistemi operativi
+=== GENERAL DESCRIPTION ===
+This Bash script was created with the help of artificial intelligence as a theoretical exercise to study:
+- The functioning of NTFS filesystems
+- Password recovery techniques in Windows environments
+- Operating system security mechanisms
 
-Tutte le operazioni vanno eseguite SOLO su:
-[✓] Macchine virtuali di proprietà (VirtualBox/VMware)
-[✓] Hardware fisico autorizzato per scritto
-[✓] Sistemi senza dati personali reali
+All operations must be executed ONLY on:
+[✓] Personally owned virtual machines (VirtualBox/VMware)
+[✓] Physical hardware explicitly authorized in writing
+[✓] Systems with no real personal data
 
-=== AVVERTENZE LEGALI ===
-L'uso non autorizzato di questo strumento costituisce reato:
-- Art. 615-ter CP (Accesso abusivo a sistema informatico)
-- Art. 635-bis CP (Danneggiamento informatico)
-- Violazione GDPR per trattamento dati illecito
+=== LEGAL WARNINGS ===
+Unauthorized use of this tool constitutes a criminal offense:
+- Art. 615-ter CP (Unauthorized access to computer systems)
+- Art. 635-bis CP (Computer system damage)
+- GDPR violation due to unlawful data processing
 
-Il codice è stato sviluppato e realizzato grazie all'AI e testato su ISO Debian modificata
-in ambiente completamente isolato da reti esterne.
+The code was developed with the help of AI and tested on a modified Debian ISO
+in a completely isolated environment with no external network access.
 
-=== INIZIO CODICE ===
+=== CODE START ===
 
 #!/bin/bash
 
 # ======================
-# CONFIGURAZIONE INIZIALE
+# INITIAL CONFIGURATION
 # ======================
-echo "[INFO] Ricerca partizioni NTFS in corso..."
+echo "[INFO] Searching for NTFS partitions..."
 
-# Cerca la prima partizione NTFS disponibile
+# Search for the first available NTFS partition
 PART=$(lsblk -o NAME,FSTYPE | grep ntfs | awk '{print $1}' | head -n1)
 
-# Verifica se esiste almeno una partizione NTFS
+# Check if at least one NTFS partition exists
 if [ -z "$PART" ]; then
-  echo "[ERRORE] Nessuna partizione NTFS trovata. Uscita."
+  echo "[ERROR] No NTFS partition found. Exiting."
   exit 1
 fi
 
-# =============
-# MONTAGGIO FS
-# =============
+# ============
+# FILESYSTEM MOUNT
+# ============
 DEV="/dev/$PART"
-MNT="/mnt/win" # Punto di mount temporaneo
+MNT="/mnt/win" # Temporary mount point
 
-echo "[INFO] Tentativo di montaggio in scrittura di $DEV"
+echo "[INFO] Attempting writable mount of $DEV"
 mkdir -p $MNT
 
-# Prova prima il montaggio in scrittura
+# Try writable mount first
 mount -t ntfs-3g $DEV $MNT 2>/dev/null
 
-# Fallback al montaggio in sola lettura
+# Fallback to read-only mount
 if [ $? -ne 0 ]; then
-  echo "[WARNING] Montaggio scrittura fallito. Provo in sola lettura..."
+  echo "[WARNING] Writable mount failed. Trying read-only..."
   mount -o ro -t ntfs-3g $DEV $MNT || { 
-    echo "[ERRORE] Montaggio fallito. Uscita."
+    echo "[ERROR] Mount failed. Exiting."
     exit 1
   }
 fi
 
 # =========================
-# ANALISI FILE DI SISTEMA
+# SYSTEM FILE ANALYSIS
 # =========================
 CONFIG_PATH="$MNT/Windows/System32/config"
 if [ ! -d "$CONFIG_PATH" ]; then
-  echo "[ERRORE] Directory di configurazione non trovata"
+  echo "[ERROR] Configuration directory not found"
   umount $MNT
   exit 1
 fi
 
-# Spostamento nella directory target
+# Move into target directory
 cd $CONFIG_PATH
 
 # ======================
-# INTERFACCIA UTENTE
+# USER INTERFACE
 # ======================
-echo "[INFO] Elenco utenti nel registro SAM:"
+echo "[INFO] Listing users in the SAM registry:"
 chntpw -l SAM
 
-# Scelta azione da compiere
-read -p "Inserisci username da modificare: " USER
+# Choose user
+read -p "Enter username to modify: " USER
 if [ -z "$USER" ]; then
-  echo "[ERRORE] Nessun username inserito"
+  echo "[ERROR] No username provided"
   umount $MNT
   exit 1
 fi
 
-# Menu opzioni
-echo "Seleziona operazione:"
-echo "1) Cancella password"
-echo "2) Rendi amministratore"
-echo "3) Sblocca utente"
-read -p "Scelta (1/2/3): " OP
+# Options menu
+echo "Select operation:"
+echo "1) Clear password"
+echo "2) Grant administrator privileges"
+echo "3) Unlock user"
+read -p "Choice (1/2/3): " OP
 
-# Esecuzione operazione
+# Execute operation
 case $OP in
   1)
-    echo "[AZIONE] Cancellazione password per $USER"
+    echo "[ACTION] Clearing password for $USER"
     chntpw -u "$USER" SAM
     ;;
   2)
-    echo "[AZIONE] Promozione a admin per $USER"
+    echo "[ACTION] Promoting $USER to administrator"
     chntpw -u "$USER" -i SAM <<< $'3\n544\nq\ny\n'
     ;;
   3)
-    echo "[AZIONE] Sblocco account $USER"
+    echo "[ACTION] Unlocking account $USER"
     chntpw -u "$USER" -i SAM <<< $'2\nq\ny\n'
     ;;
   *)
-    echo "[ERRORE] Scelta non valida"
+    echo "[ERROR] Invalid choice"
     ;;
 esac
 
-# =============
-# PULIZIA FINALE
-# =============
+# ============
+# FINAL CLEANUP
+# ============
 umount $MNT
-echo "[SUCCESSO] Operazioni completate"
+echo "[SUCCESS] Operations completed"
 
-=== FINE CODICE ===
+=== CODE END ===
 
-=== DOCUMENTAZIONE AGGIUNTIVA ===
+=== ADDITIONAL DOCUMENTATION ===
 
-*Ambiente di sviluppo:*
-- ISO Debian 11 personalizzata (kernel 5.10)
-- VirtualBox 6.1 con rete NAT interna
-- Nessuna connessione Internet attiva durante i test
+*Development environment:*
+- Custom Debian 11 ISO (kernel 5.10)
+- VirtualBox 6.1 with internal NAT network
+- No Internet connection enabled during tests
 
-*Strumenti utilizzati:*
+*Tools used:*
 - chntpw (v1.00)
 - ntfs-3g (v2021.8.22)
 - Bash 5.1
 
-*Finalità didattiche:*
-1. Studio della struttura del registro Windows
-2. Analisi dei meccanismi di autenticazione
-3. Tecniche di recupero dati forense
+*Educational purposes:*
+1. Study of the Windows registry structure
+2. Analysis of authentication mechanisms
+3. Forensic data recovery techniques
 
-=== CHIUSURA ===
-Questo materiale è parte integrante del progetto scolastico
-e non deve essere utilizzato al di fuori del contesto formativo.
+=== CLOSING ===
+This material is an integral part of a school project
+and must not be used outside an educational context.
 
 Data creazione: 16/05/2025
 Autore: [Federico Contrino]
