@@ -1,54 +1,63 @@
-# 🔐 Cybersecurity-Project  
-*Educational repository by FedeContri*  
+🔐 Cybersecurity Learning Lab
+A personal study repository by FedeContri
 
-## 📚 Project Purpose  
-Collection of **experiments and theoretical studies** on:  
-- Cybersecurity techniques  
-- Vulnerability analysis  
-- Virtualized protected environments  
+What This Is
+This is my personal notebook for exploring cybersecurity concepts through hands-on experiments. It's where I take textbook theory and see how it works in practice—always within strictly controlled environments.
 
-*All material is developed exclusively to:*  
-✅ Experiment and learn new techniques  
-✅ Ethical research in controlled environments  
-✅ Development of legal skills in information security  
+The Philosophy
+I believe the best way to understand defense is to study offense in a safe, isolated setting. Every file here represents hours of research, testing, and learning.
 
----
+The Rules (Non-Negotiable)
+Where experiments run:
 
-## ⚠️ Terms of Use  
-### 🔒 Testing Environments  
-All experiments are conducted in:  
-- Isolated virtual machines (VirtualBox/VMware)  
-- Dedicated lab networks  
-- Sandboxes with no Internet connection  
+- Isolated virtual machines (usually VirtualBox)
 
-### 📜 Legal Aspects  
-- Material created for **my educational path**  
-- **No testing on real systems** (art. 615-quinquies CP)  
-- Ethical and legal violations are **explicitly forbidden**  
+- Lab-only network ranges (192.168.x.x)
 
----
+- Zero internet access from test environments
 
-## 🎯 Educational Objectives  
-1. Understand offensive techniques to build better defenses  
-2. Analyze vulnerabilities in controlled contexts  
-3. Develop technical and ethical skills  
+The legal line I don't cross:
+This is education, not action. Testing on real systems isn't just unethical—it's illegal under multiple laws (Italian art. 615-quinquies CP, EU NIS2, etc.). Everything stays in the sandbox.
 
----
+What I'm Learning
+Network security fundamentals - How traffic flows, where it can be intercepted, and how to protect it
 
-## 🤖 Use of Artificial Intelligence  
-AI has been used to:  
-- Optimize, comment, and create existing code  
-- Generate complex technical explanations  
-- Simulate virtual environments for testing  
-- Verify the ethical nature of the approaches  
+Vulnerability analysis - Understanding weaknesses to build stronger systems
 
-> *"Knowing attacks is essential to defend against them, but it must be done responsibly"*  
+Ethical methodology - How to research security without crossing ethical or legal boundaries
 
----
+How I Work (AI & Me)
+I use AI as a study partner, not a shortcut. It helps with:
 
-## 📜 License & Responsibility  
-- **MIT License**  
-- **No warranty** of functionality  
-- **The author is not responsible** for improper use  
+Explaining complex technical concepts in simpler terms
 
-*For any doubts, consult a teacher or a cybersecurity expert.*  
+Suggesting experiment structures
+
+Reviewing my approach for safety and ethics
+
+The understanding, decisions, and responsibility are mine alone.
+
+About the Files
+
+'Denial of Service Theorical Test'
+
+This is a study of older DoS techniques, specifically looking at ARP protocol weaknesses. It's more historical analysis than practical tool—understanding how attacks worked helps recognize modern variants. The code is written for VirtualBox internal networks only.
+
+
+'Debian ISO bash script modified with cubic'
+
+this file instead is an experiment in understanding Windows authentication by examining the SAM registry in a controlled VM.
+This was AI-assisted in the initial drafting but modified through my own research. It's never been run on a real system—only so its operation is not guaranteed.
+
+Important note: This exists to understand how authentication works, not to bypass it on systems I don't own.
+
+License & Reality Check
+MIT License for the code
+
+No warranty for anything
+
+Not responsible for misuse
+
+This isn't a toolkit. It's a learning journal. If you're looking for actual security tools, there are better-maintained, professionally supported projects out there. If you're learning like I am, welcome—but learn responsibly.
+
+"Knowledge without ethics is dangerous. Ethics without knowledge is ineffective. We need both."
