@@ -27,12 +27,6 @@ Tools used:
 - Ettercap 0.8.3 (lab version only)
 - Filters compiled with verification checksum
 
-How should i use it?
-1) Download an iso of Debian
-2) Download Cubic (available only in an Ubuntu enviroment)
-3) Once inside the iso install the necessary tools and create the script with the editor
-4) Once done, your iso file is ready to run.
-
 === CODE START ===
 
 # Theoretical filter for traffic analysis

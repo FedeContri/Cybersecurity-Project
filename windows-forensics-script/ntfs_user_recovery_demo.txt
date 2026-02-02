@@ -28,6 +28,13 @@ Unauthorized use of this tool constitutes a criminal offense:
 The code was developed with the help of AI and tested on a modified Debian ISO
 in a completely isolated environment with no external network access.
 
+How should i use it?
+1) Download an iso of Debian
+2) Download Cubic (available only in an Ubuntu enviroment)
+3) Once inside the iso install the necessary tools and create the script with the editor
+4) Once done, your iso file is ready to run.
+
+
 === CODE START ===
 
 #!/bin/bash
