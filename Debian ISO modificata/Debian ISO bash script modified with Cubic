@@ -1,14 +1,15 @@
 #############################################################################
 #                                                                           #
-#             THEORETICAL INFORMATION SECURITY PROJECT                      #
-#              (School Capstone Project – Year 2024/2025)                   #
-#                                                                           #
-#                *** EDUCATIONAL USE ONLY ***                               #
+#              THEORETICAL INFORMATION SECURITY PROJECT                     #
+#                                                                           #                                                    #
+#                     *** EDUCATIONAL USE ONLY ***                          #
 #                                                                           #
 #############################################################################
 
 === GENERAL DESCRIPTION ===
-This Bash script was created with the help of artificial intelligence as a theoretical exercise to study:
+This Bash script was created with the help of artificial intelligence as a theoretical exercise to study,
+it should be created in a modified Debian ISO environment using Cubic, by first installing the tools required and then 
+adding this script
 - The functioning of NTFS filesystems
 - Password recovery techniques in Windows environments
 - Operating system security mechanisms
@@ -30,10 +31,9 @@ in a completely isolated environment with no external network access.
 === CODE START ===
 
 #!/bin/bash
-
-# ======================
+  
 # INITIAL CONFIGURATION
-# ======================
+
 echo "[INFO] Searching for NTFS partitions..."
 
 # Search for the first available NTFS partition
@@ -45,9 +45,9 @@ if [ -z "$PART" ]; then
   exit 1
 fi
 
-# ============
+
 # FILESYSTEM MOUNT
-# ============
+
 DEV="/dev/$PART"
 MNT="/mnt/win" # Temporary mount point
 
@@ -66,9 +66,9 @@ if [ $? -ne 0 ]; then
   }
 fi
 
-# =========================
+
 # SYSTEM FILE ANALYSIS
-# =========================
+
 CONFIG_PATH="$MNT/Windows/System32/config"
 if [ ! -d "$CONFIG_PATH" ]; then
   echo "[ERROR] Configuration directory not found"
@@ -79,9 +79,9 @@ fi
 # Move into target directory
 cd $CONFIG_PATH
 
-# ======================
+
 # USER INTERFACE
-# ======================
+
 echo "[INFO] Listing users in the SAM registry:"
 chntpw -l SAM
 
@@ -100,7 +100,7 @@ echo "2) Grant administrator privileges"
 echo "3) Unlock user"
 read -p "Choice (1/2/3): " OP
 
-# Execute operation
+# Run operation
 case $OP in
   1)
     echo "[ACTION] Clearing password for $USER"
@@ -119,9 +119,9 @@ case $OP in
     ;;
 esac
 
-# ============
+
 # FINAL CLEANUP
-# ============
+
 umount $MNT
 echo "[SUCCESS] Operations completed"
 
@@ -148,3 +148,4 @@ echo "[SUCCESS] Operations completed"
 This material is an integral part of a school project
 and must not be used outside an educational context.
 
+The actually functioning of the script was not verified, and was created mostly by an AI agent, so it may contain errors or inaccuracies.
